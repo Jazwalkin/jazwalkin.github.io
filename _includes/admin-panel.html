@@ -1,0 +1,145 @@
+<!-- Admin Panel for Jekyll Blog -->
+<div class="admin-panel admin-only">
+  <h2>Admin Dashboard</h2>
+  
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="new-post">Create Post</button>
+    <button class="tab-btn" data-tab="edit-posts">Manage Posts</button>
+    <button class="tab-btn" data-tab="manage-tags">Tags & Categories</button>
+    <button class="tab-btn" data-tab="site-settings">Settings</button>
+  </div>
+  
+  <!-- Create New Post Tab -->
+  <div id="new-post" class="tab-content active">
+    <h3>Create New Post</h3>
+    <form id="create-post-form">
+      <div class="form-group">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title" placeholder="Post Title" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-date">Date</label>
+        <input type="datetime-local" id="post-date">
+      </div>
+      
+      <div class="form-group">
+        <label for="post-categories">Categories</label>
+        <input type="text" id="post-categories" placeholder="Categories (comma separated)">
+        <small>Example: Blogging, Jekyll</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-tags">Tags</label>
+        <input type="text" id="post-tags" placeholder="Tags (comma separated)">
+        <small>Example: tutorial, guide, web-development</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="post-content">Content (Markdown)</label>
+        <textarea id="post-content" placeholder="Write your post content in Markdown format"></textarea>
+        <div class="markdown-toolbar">
+          <button type="button" data-markdown="bold">Bold</button>
+          <button type="button" data-markdown="italic">Italic</button>
+          <button type="button" data-markdown="heading">Heading</button>
+          <button type="button" data-markdown="link">Link</button>
+          <button type="button" data-markdown="image">Image</button>
+          <button type="button" data-markdown="code">Code</button>
+          <button type="button" data-markdown="list">List</button>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" id="save-draft">Save as Draft</button>
+        <button type="button" id="publish-post">Publish Post</button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Manage Posts Tab -->
+  <div id="edit-posts" class="tab-content">
+    <h3>Manage Posts</h3>
+    
+    <div class="posts-filter">
+      <label>
+        <input type="radio" name="post-filter" value="all" checked> All
+      </label>
+      <label>
+        <input type="radio" name="post-filter" value="published"> Published
+      </label>
+      <label>
+        <input type="radio" name="post-filter" value="drafts"> Drafts
+      </label>
+    </div>
+    
+    <div id="posts-list">
+      <p>Loading posts...</p>
+    </div>
+  </div>
+  
+  <!-- Manage Tags & Categories Tab -->
+  <div id="manage-tags" class="tab-content">
+    <h3>Manage Tags & Categories</h3>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Categories</h4>
+        <div id="categories-list">
+          <p>Loading categories...</p>
+        </div>
+        <div class="add-item-form">
+          <input type="text" id="new-category" placeholder="New Category">
+          <button id="add-category">Add</button>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <h4>Tags</h4>
+        <div id="tags-list">
+          <p>Loading tags...</p>
+        </div>
+        <div class="add-item-form">
+          <input type="text" id="new-tag" placeholder="New Tag">
+          <button id="add-tag">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Site Settings Tab -->
+  <div id="site-settings" class="tab-content">
+    <h3>Site Settings</h3>
+    
+    <form id="site-settings-form">
+      <div class="form-group">
+        <label for="site-title">Site Title</label>
+        <input type="text" id="site-title" placeholder="Site Title">
+      </div>
+      
+      <div class="form-group">
+        <label for="site-description">Site Description</label>
+        <textarea id="site-description" placeholder="Site Description"></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="site-author">Author Name</label>
+        <input type="text" id="site-author" placeholder="Author Name">
+      </div>
+      
+      <div class="form-group">
+        <label for="site-social">Social Links</label>
+        <input type="text" id="site-github" placeholder="GitHub Username">
+        <input type="text" id="site-twitter" placeholder="Twitter Username">
+      </div>
+      
+      <div class="form-actions">
+        <button type="button" id="save-settings">Save Settings</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Quick options for logged-in admin -->
+<div class="admin-quick-options admin-only">
+  <button id="admin-logout">Logout</button>
+</div>
