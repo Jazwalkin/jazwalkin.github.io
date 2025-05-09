@@ -1,0 +1,32 @@
+name: Deploy Jekyll with GitHub Pages
+
+on:
+  push:
+    branches: ["master", "main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Deploy Jekyll Site
+        uses: jeffreytse/jekyll-deploy-action@v0.4.0
+        with:
+          provider: 'github'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'gh-pages'       # Default is gh-pages for github provider
+          jekyll_src: './'         # Default is the root directory
+          jekyll_cfg: '_config.yml'  # Default is _config.yml
+          cname: ''                # Default is to not use a cname
+          actor: ''                # Default is the GITHUB_ACTOR
