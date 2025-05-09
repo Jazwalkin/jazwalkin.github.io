@@ -21,8 +21,8 @@ timezone: America/New_York
 title: Jaz Writes                               # the main title
 tagline: There are weeks where decades happen  # it will display as the sub-title
 description: >-                                # used by seo meta and the atom feed
-  Detailed description of your blog
-url: "https://yourdomain.com"                  # the base hostname & protocol for your site
+  A personal blog by Jaz Walker featuring analysis, reflections, and discussions on various topics
+url: "https://jazwalkin.github.io"             # the base hostname & protocol for your site
 
 github:
   username: Jazwalkin                         # change to your GitHub username
